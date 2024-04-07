@@ -2,6 +2,8 @@ from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.filters.callback_data import CallbackData
 
+from data import BACK
+
 class Language(CallbackData, prefix='menu'):
     language: str
 
@@ -21,5 +23,5 @@ def menu_inline_kb(items: dict, prev: str, language: str):
     if len(items) > 0:
         for k,v in items.items():
             builder.add(InlineKeyboardButton(text=v, callback_data=Menu(menu_item=k, language=language).pack()))
-    builder.row(InlineKeyboardButton(text='🔙', callback_data=Menu(menu_item=prev, language=language).pack()))
+    builder.row(InlineKeyboardButton(text=BACK[language], callback_data=Menu(menu_item=prev, language=language).pack()))
     return builder.as_markup()

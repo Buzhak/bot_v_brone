@@ -17,17 +17,21 @@ load_dotenv()
 bot = Bot(token=os.getenv('TOKEN'), parse_mode='HTML')
 dp = Dispatcher()
 
+async def print_photo(message: Message):
+    photo = 'AgACAgIAAxkBAAIHz2YR29clFUjcc-ak-Ay_2hmyPKn4AALa1TEbn_ORSGEYR3prCoGNAQADAgADeQADNAQ'
+    await message.answer_photo(photo)
+
 
 # =====================================START=====================================
 @dp.message(Command('start'))
 async def start(message: Message):
-    photo = 'AgACAgIAAxkBAAIHz2YR29clFUjcc-ak-Ay_2hmyPKn4AALa1TEbn_ORSGEYR3prCoGNAQADAgADeQADNAQ'
-    await message.answer_photo(photo)
+    await print_photo(message)
     await message.answer('<b>Selectaţi o limbă / Выберите язык</b>', reply_markup=keyboards.language_inline_kb(DATA.keys()))
 
 @dp.message()
 async def change_lanuage(message: Message):
-    await message.edit_text('<b>Selectaţi o limbă / Выберите язык</b>', reply_markup=keyboards.language_inline_kb(DATA.keys()))
+    await print_photo(message)
+    await message.answer('<b>Selectaţi o limbă / Выберите язык</b>', reply_markup=keyboards.language_inline_kb(DATA.keys()))
 
 @dp.message(F.photo)
 async def photo_hendler(message: Message):
@@ -43,7 +47,8 @@ async def start_hendler(query: CallbackQuery, callback_data: keyboards.Language)
 async def main_menu(message: Message, language):
     title = DATA[language]['main_menu']['title']
     menu = DATA[language]['main_menu']['menu']
-    await message.edit_text(text=title, reply_markup=keyboards.menu_inline_kb(menu, 'change_lanuage', language))
+    await print_photo(message)
+    await message.answer(text=title, reply_markup=keyboards.menu_inline_kb(menu, 'change_lanuage', language))
 
 @dp.callback_query(keyboards.Menu.filter(F.menu_item == 'change_lanuage'))
 async def back_main_menu_hendler(query: CallbackQuery, callback_data: keyboards.Menu):
@@ -60,7 +65,8 @@ async def back_main_menu_hendler(query: CallbackQuery, callback_data: keyboards.
 async def menu(message: Message, data):
     title = DATA[data.language][data.menu_item]['title']
     menu = DATA[data.language][data.menu_item]['menu']
-    await message.edit_text(title, reply_markup=keyboards.menu_inline_kb(menu, 'main_menu', data.language))
+    await print_photo(message)
+    await message.answer(title, reply_markup=keyboards.menu_inline_kb(menu, 'main_menu', data.language))
 
 # =====================================About=====================================
 

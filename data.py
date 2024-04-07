@@ -5,7 +5,7 @@ DATA = {
             'menu': {
                 'price': 'Preţuri',
                 'contacts': 'Contacte',
-                'about': 'Despre noi'
+                'about': 'Despre noi',
             }
         },
         'about': {
@@ -22,7 +22,7 @@ DATA = {
             }
         },
         'center': {
-            'title': 'Bulevardul Ștefan cel Mare și Sfînt 130, MD-2012, Chișinău \nLuni până Vineri: 9:00 - 18:30\nSâmbăta: 9:00 - 17:00\nDuminica: Închis\n+737379303230',
+            'title': 'Bulevardul Ștefan cel Mare și Sfînt 130, MD-2012, Chișinău \n\nLuni până Vineri: 9:00 - 18:30\nSâmbăta: 9:00 - 17:00\nDuminica: Închis\n\ntel: +37379303230',
             'lat': 47.021888089676644,
             'lon': 28.837010339807158,
             'menu': {}
@@ -52,7 +52,7 @@ DATA = {
             }
         },
         'center': {
-            'title': 'Bulevardul Ștefan cel Mare și Sfînt 130, MD-2012, Chișinău \nпн-пт: 9:00 - 18:30\nсб: 9:00 - 17:00\nвс: Выходной\nтел.: +737379303230',
+            'title': 'Bulevardul Ștefan cel Mare și Sfînt 130, MD-2012, Chișinău \n\nпн-пт: 9:00 - 18:30\nсб: 9:00 - 17:00\nвс: Выходной\n\nтелефон: +37379303230',
             'lat': 47.021888089676644,
             'lon': 28.837010339807158,
             'menu': {}
@@ -62,5 +62,6 @@ DATA = {
 
 MAIN_MENU = ['price', 'contacts', 'about']
 СONTACTS = ['center', 'botanica', 'ryshkanovka', 'belci']
+BACK= {'RO 🇲🇩': 'Înapoi', 'RU 🇷🇺': 'Назад'}
 
 
